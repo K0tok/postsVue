@@ -44,6 +44,7 @@
     <div>
       <button class="like" @click="addLike">Лайк</button>
       <button class="dislike" @click="addDislike">Дизлайк</button>
+      
     </div> -->
   </div>
 </template>
