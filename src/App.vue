@@ -1,59 +1,38 @@
 <template>
   <div id="app">
-    <h2>Создание поста</h2>
+    <post-form
+      @add="addPost"
+    ></post-form>
     <div>
-      <input 
-        v-model="title"
-        class="title" 
-        type="text"
-        placeholder="Название поста"
-      >
-    </div>
-    <div>
-      <input 
-        v-model="text"
-        class="text" 
-        type="text"
-        placeholder="Содержание поста"
-      >
-    </div>
-    <button @click="addPost">Выложить пост</button>
-
-    <h2>Список постов</h2>
-    <div 
-      v-if="posts.length === 0"
-    >
-      Добавленных постов нет
-      </div>
-    <div 
-      v-for="(post, index) in posts" 
-      :key="index" 
-      class="post" 
-    >
-      <h4>Название поста: {{ post.title }}</h4>
-      <p>Содержание поста: {{ post.text }}</p>
-      <button @click="deletePost(index)">Удалить пост</button>
+      <h2>Список постов</h2>
+      <post-list
+        :posts="posts"
+      ></post-list>
     </div>
   </div>
 </template>
 
 <script>
-
+import PostList from '@/components/PostList.vue'
+import PostForm from '@/components/PostForm.vue'
 
 export default {
   name: 'App',
+  components: {
+    PostList, PostForm,
+  },
   data() {
     return {
       posts: [
         {
           id: 1,
           title: 'Пост 1',
-          text: 'Текст поста №1'
+          body: 'Текст поста №1'
         },        
         {
           id: 2,
           title: 'Пост 2',
-          text: 'Текст поста №2'
+          body: 'Текст поста №2'
         },
       ],
       title: '',
@@ -61,14 +40,8 @@ export default {
     }
   },
   methods: {
-    addPost() {
-      this.posts.push(
-        {
-          title: this.title,
-          text: this.text
-        }
-      )
-      this.title = this.text = ''
+    addPost(post) {
+      this.posts.push(post)
     },
     deletePost(index) {
       this.posts.splice(index, 1)
