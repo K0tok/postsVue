@@ -34,18 +34,6 @@
       <p>Содержание поста: {{ post.text }}</p>
       <button @click="deletePost(index)">Удалить пост</button>
     </div>
-
-    <!-- <div>
-      Количество лайков: {{likes}}
-    </div>
-    <div>
-      Количество дизлайков: {{dislikes}}
-    </div>
-    <div>
-      <button class="like" @click="addLike">Лайк</button>
-      <button class="dislike" @click="addDislike">Дизлайк</button>
-      
-    </div> -->
   </div>
 </template>
 
@@ -56,18 +44,16 @@ export default {
   name: 'App',
   data() {
     return {
-      // likes: 0,
-      // dislikes: 0,
       posts: [
         {
           id: 1,
           title: 'Пост 1',
-          text: '111111'
+          text: 'Текст поста №1'
         },        
         {
           id: 2,
           title: 'Пост 2',
-          text: '222222222222'
+          text: 'Текст поста №2'
         },
       ],
       title: '',
@@ -75,12 +61,6 @@ export default {
     }
   },
   methods: {
-    // addLike() {
-    //   this.likes += 1
-    // },
-    // addDislike() {
-    //   this.dislikes += 1
-    // },
     addPost() {
       this.posts.push(
         {
@@ -105,21 +85,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: left;
   color: #2c3e50;
-  margin-top: 60px;
+  margin: 60px 20px;
 }
-/* .like {
-  border-radius: 3px;
-  font-size: 20px;
-  background-color: greenyellow;
-  cursor: pointer;
-}
-.dislike {
-  border-radius: 3px;
-  font-size: 20px;
-  background-color: red;
-  color: white;
-  cursor: pointer;
-} */
+
 .post {
   border: 1px solid black;
   border-radius: 5px;
