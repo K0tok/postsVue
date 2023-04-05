@@ -8,9 +8,13 @@
         :key="index" 
         class="post" 
         >
-            <div>Название поста: {{ post.title }}</div>
-            <div>Содержание поста: {{ post.body }}</div>
-            <button @click="deletePost(index)">Удалить пост</button>
+            <div style="display: flex">
+                <div style="width: 100%">
+                    <div><b>Название поста:</b> {{ post.title }}</div>
+                    <div><b>Содержание поста:</b> {{ post.body }}</div>
+                </div>
+                <button class="pulse" @click="deletePost(index)">Удалить пост</button>
+            </div>
         </div>
     </div>
 </template>
@@ -27,9 +31,22 @@
                 required: false,
             },
         },
+        methods: {
+            deletePost(index) {
+                this.$emit('deletePost', index)
+            },
+        },
     }
 </script>
 
 <style>
+.pulse:hover, 
+.pulse:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em rgba(#fff,0);
+}
 
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 var(--hover); }
+}
 </style>

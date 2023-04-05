@@ -1,23 +1,24 @@
 <template>
     <div>
         <h2>Создание поста</h2>
-        <div>
-        <input 
-            v-model="post.title"
-            class="title" 
-            type="text"
-            placeholder="Название поста"
-        >
+        <div style="display: flex">
+            <div>
+                <input 
+                    v-model="post.title"
+                    class="title" 
+                    type="text"
+                    placeholder="Название поста"
+                >
+                <input 
+                    v-model="post.body"
+                    class="text" 
+                    type="text"
+                    placeholder="Содержание поста"
+                >
+            </div>
+            
+            <button class="but" @click="addPost">Выложить пост</button>
         </div>
-        <div>
-        <input 
-            v-model="post.body"
-            class="text" 
-            type="text"
-            placeholder="Содержание поста"
-        >
-        </div>
-        <button @click="addPost">Выложить пост</button>
     </div>
 </template>
 
@@ -42,5 +43,15 @@ export default {
 </script>
 
 <style>
-
+.title {
+    width: 100%; 
+    font-size: 40px; 
+    border-radius: 5px
+}
+.text {
+    width: 100%; 
+    font-size: 40px; 
+    border-radius: 5px; 
+    margin-top: 10px
+}
 </style>
