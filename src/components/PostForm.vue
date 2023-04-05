@@ -27,10 +27,12 @@ export default {
     name: 'PostForm',
     data() {
         return {
-            post: {
-                title: '', 
+            post:{
+                title: '',
                 body: '',
-            }
+                posts: [],
+                searchString: '',
+            },
         }
     },
     methods: {
